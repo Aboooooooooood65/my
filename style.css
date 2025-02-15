@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+#inputSection {
+    margin-bottom: 20px;
+}
+
+#codeInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #e91e63;
+    border-radius: 5px;
+    outline: none;
+}
+
+#submitButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #e91e63;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#submitButton:hover {
+    background-color: #c2185b;
+}
+
+#errorMessage {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 50px auto;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background-color: #f44336;
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+.body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background-color: #e53935;
+    z-index: -1;
+}
+
+.letter {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 250px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.105);
+    padding: 20px;
+    transform: translateX(-50%);
+    opacity: 0;
+    overflow-y: auto;
+    transition: top 1s ease, opacity 2s ease;
+    overflow: auto;
+    border-radius: 20%;
+}
+
+
+
+.letter p {
+    margin: 0;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+    font-weight: 900;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    top: -64px;
+    opacity: 1;
+}
+
+.heart, .flower {
+    position: absolute;
+    color: #e91e63;
+    font-size: 24px;
+    animation: fall 5s linear infinite;
+    top: -50px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* تخصيص شكل الأسكرول */
+.letter::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.letter::-webkit-scrollbar-thumb {
+    background: #e91e63;
+    border-radius: 10px;
+}
+
+.letter::-webkit-scrollbar-thumb:hover {
+    background: #c2185b;
+}
